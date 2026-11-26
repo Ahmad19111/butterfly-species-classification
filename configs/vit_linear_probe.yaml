@@ -1,0 +1,35 @@
+# ViT Linear Probing: Backbone einfrieren und nur den Kopf trainieren.
+name: vit_linear_probe
+seed: 42
+
+model:
+  timm_name: vit_base_patch16_224.augreg2_in21k_ft_in1k
+
+transforms:               # identisch zum CNN
+  img_size: 224
+  resize_size: 256
+  rrc_scale: [0.25, 1.0]
+  hflip_p: 0.5
+
+features:
+  # Ohne Zufallsaugmentation bleiben die gecachten Features reproduzierbar.
+  train_augment: false
+  batch_size: 64
+  num_workers: 4
+  amp: true
+  cache_dir: data/interim/features
+
+train:                    # Kopf auf gecachten Features
+  batch_size: 64
+  epochs: 50
+  lr: 1.0e-3
+  weight_decay: 0.01
+  amp: true
+
+debug:
+  epochs: 2
+  max_batches: 2
+
+output:
+  checkpoint_dir: experiments/checkpoints
+  results_dir: experiments/results

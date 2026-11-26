@@ -1,0 +1,142 @@
+{
+  "name": "vit_lora_r4",
+  "debug": false,
+  "config": {
+    "name": "vit_lora",
+    "seed": 42,
+    "model": {
+      "timm_name": "vit_base_patch16_224.augreg2_in21k_ft_in1k"
+    },
+    "lora": {
+      "rank": 4,
+      "alpha_factor": 2,
+      "dropout": 0.1,
+      "target_modules": [
+        "qkv"
+      ],
+      "modules_to_save": [
+        "head"
+      ]
+    },
+    "transforms": {
+      "img_size": 224,
+      "resize_size": 256,
+      "rrc_scale": [
+        0.25,
+        1.0
+      ],
+      "hflip_p": 0.5
+    },
+    "train": {
+      "batch_size": 32,
+      "accum_steps": 1,
+      "num_workers": 4,
+      "epochs": 8,
+      "lr": 0.001,
+      "weight_decay": 0.01,
+      "amp": true
+    },
+    "debug": {
+      "epochs": 1,
+      "max_batches": 2
+    },
+    "output": {
+      "checkpoint_dir": "experiments/checkpoints",
+      "results_dir": "experiments/results"
+    }
+  },
+  "rank": 4,
+  "alpha": 8,
+  "total_params": 85953802,
+  "phases": {
+    "lora": {
+      "trainable_params": 151301,
+      "lora_params": 147456,
+      "epochs": 8,
+      "lr": 0.001,
+      "train_time_s": 6677.932130200003,
+      "peak_gpu_mem_allocated_mb": 2086.833984375,
+      "peak_gpu_mem_reserved_mb": 2240.0
+    }
+  },
+  "total_wall_time_s": 7400.266156700003,
+  "best_val_acc": 0.9939320388349514,
+  "best_epoch": 2,
+  "checkpoint": "experiments/checkpoints/vit_lora_r4_best",
+  "history": [
+    {
+      "epoch": 1,
+      "phase": "lora",
+      "train_loss": 0.22303182397880694,
+      "train_acc": 0.9139728884254432,
+      "val_loss": 0.06712756659473898,
+      "val_acc": 0.9757281553398058,
+      "train_time_s": 850.7916440999979
+    },
+    {
+      "epoch": 2,
+      "phase": "lora",
+      "train_loss": 0.035649281969790204,
+      "train_acc": 0.9874869655891554,
+      "val_loss": 0.015405470014830093,
+      "val_acc": 0.9939320388349514,
+      "train_time_s": 833.690511599998
+    },
+    {
+      "epoch": 3,
+      "phase": "lora",
+      "train_loss": 0.02559544809546338,
+      "train_acc": 0.9903545359749739,
+      "val_loss": 0.01691910884460633,
+      "val_acc": 0.991504854368932,
+      "train_time_s": 832.172221700006
+    },
+    {
+      "epoch": 4,
+      "phase": "lora",
+      "train_loss": 0.03334963842216448,
+      "train_acc": 0.9890510948905109,
+      "val_loss": 0.050535995843232547,
+      "val_acc": 0.9817961165048543,
+      "train_time_s": 832.1793285000022
+    },
+    {
+      "epoch": 5,
+      "phase": "lora",
+      "train_loss": 0.01730387091318124,
+      "train_acc": 0.9940041710114703,
+      "val_loss": 0.017543995558528355,
+      "val_acc": 0.9927184466019418,
+      "train_time_s": 832.2909627000045
+    },
+    {
+      "epoch": 6,
+      "phase": "lora",
+      "train_loss": 0.022786005632587678,
+      "train_acc": 0.9932221063607924,
+      "val_loss": 0.025862833538976525,
+      "val_acc": 0.991504854368932,
+      "train_time_s": 832.5222084999987
+    },
+    {
+      "epoch": 7,
+      "phase": "lora",
+      "train_loss": 0.017848732557858616,
+      "train_acc": 0.9942648592283628,
+      "val_loss": 0.0426855859825912,
+      "val_acc": 0.9842233009708737,
+      "train_time_s": 832.1226311000064
+    },
+    {
+      "epoch": 8,
+      "phase": "lora",
+      "train_loss": 0.023217178267408337,
+      "train_acc": 0.9906152241918665,
+      "val_loss": 0.02716914080625888,
+      "val_acc": 0.991504854368932,
+      "train_time_s": 832.1626219999889
+    }
+  ],
+  "gpu": "NVIDIA GeForce GTX 1650",
+  "torch_version": "2.15.0+cu132"
+}

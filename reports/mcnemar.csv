@@ -1,0 +1,11 @@
+model_a,model_b,label_a,label_b,acc_a,acc_b,only_a_correct,only_b_correct,p_value,p_holm,significant
+cnn_resnet50,vit_linear_probe,ResNet50 FT,ViT-B/16 LP,0.9890776699029126,0.9842233009708737,9,5,0.4239501953125,1.0,False
+cnn_resnet50,vit_lora_r4,ResNet50 FT,ViT-B/16 LoRA r=4,0.9890776699029126,0.9878640776699029,4,3,1.0,1.0,False
+cnn_resnet50,vit_lora_r8,ResNet50 FT,ViT-B/16 LoRA r=8,0.9890776699029126,0.991504854368932,3,5,0.7265625,1.0,False
+cnn_resnet50,vit_lora_r16,ResNet50 FT,ViT-B/16 LoRA r=16,0.9890776699029126,0.9878640776699029,6,5,1.0,1.0,False
+vit_linear_probe,vit_lora_r4,ViT-B/16 LP,ViT-B/16 LoRA r=4,0.9842233009708737,0.9878640776699029,6,9,0.6072387695312499,1.0,False
+vit_linear_probe,vit_lora_r8,ViT-B/16 LP,ViT-B/16 LoRA r=8,0.9842233009708737,0.991504854368932,3,9,0.14599609375,1.0,False
+vit_linear_probe,vit_lora_r16,ViT-B/16 LP,ViT-B/16 LoRA r=16,0.9842233009708737,0.9878640776699029,4,7,0.548828125,1.0,False
+vit_lora_r4,vit_lora_r8,ViT-B/16 LoRA r=4,ViT-B/16 LoRA r=8,0.9878640776699029,0.991504854368932,4,7,0.548828125,1.0,False
+vit_lora_r4,vit_lora_r16,ViT-B/16 LoRA r=4,ViT-B/16 LoRA r=16,0.9878640776699029,0.9878640776699029,7,7,1.0,1.0,False
+vit_lora_r8,vit_lora_r16,ViT-B/16 LoRA r=8,ViT-B/16 LoRA r=16,0.991504854368932,0.9878640776699029,6,3,0.5078125,1.0,False

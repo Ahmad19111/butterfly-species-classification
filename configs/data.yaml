@@ -1,0 +1,22 @@
+# Gemeinsame Einstellungen für Preprocessing und Splits.
+seed: 42
+
+raw_dir: data/raw
+processed_dir: data/processed
+splits_dir: data/splits
+
+preprocess:
+  short_side: 384      # kürzere Seite in px, nur verkleinern
+  jpeg_quality: 95
+
+splits:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+  # Nahe Sighting-IDs derselben Klasse bleiben im selben Split.
+  group_max_id_gap: 5
+
+duplicates:               # Near-Duplicate-Check zwischen den Splits
+  hash_size: 8            # pHash mit 8x8 = 64 Bit
+  max_distance: 4         # Hamming-Distanz <= Schwellwert gilt als Duplikat
+  n_examples: 8           # Beispielpaare im Kontrollbild

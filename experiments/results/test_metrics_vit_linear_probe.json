@@ -1,0 +1,91 @@
+{
+  "report": {
+    "Apatura_iris": {
+      "precision": 1.0,
+      "recall": 0.9943820224719101,
+      "f1-score": 0.9971830985915493,
+      "support": 178.0
+    },
+    "Brenthis_daphne": {
+      "precision": 1.0,
+      "recall": 0.9929577464788732,
+      "f1-score": 0.9964664310954063,
+      "support": 142.0
+    },
+    "Hamearis_lucina": {
+      "precision": 0.9621621621621622,
+      "recall": 0.978021978021978,
+      "f1-score": 0.9700272479564033,
+      "support": 182.0
+    },
+    "Melitaea_diamina": {
+      "precision": 0.9640718562874252,
+      "recall": 0.9698795180722891,
+      "f1-score": 0.9669669669669669,
+      "support": 166.0
+    },
+    "Nymphalis_polychloros": {
+      "precision": 1.0,
+      "recall": 0.9871794871794872,
+      "f1-score": 0.9935483870967742,
+      "support": 156.0
+    },
+    "accuracy": 0.9842233009708737,
+    "macro avg": {
+      "precision": 0.9852468036899176,
+      "recall": 0.9844841504449076,
+      "f1-score": 0.98483842634142,
+      "support": 824.0
+    },
+    "weighted avg": {
+      "precision": 0.9844046622053715,
+      "recall": 0.9842233009708737,
+      "f1-score": 0.9842862242676239,
+      "support": 824.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      177,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      141,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      178,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      5,
+      161,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      154
+    ]
+  ],
+  "class_names": [
+    "Apatura_iris",
+    "Brenthis_daphne",
+    "Hamearis_lucina",
+    "Melitaea_diamina",
+    "Nymphalis_polychloros"
+  ]
+}

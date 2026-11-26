@@ -1,0 +1,4 @@
+﻿cnn_resnet50: OK, 37.6 min
+vit_lora_r4: OK, 123.8 min
+vit_lora_r8: OK, 127.5 min
+vit_lora_r16: OK, 128.1 min

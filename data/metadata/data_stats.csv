@@ -1,0 +1,6 @@
+class_name,n_files,n_readable,width_min,width_median,width_max,height_min,height_median,height_max,short_side_min,short_side_median,n_short_lt_384,n_exif_rotated,extensions,formats,modes,n_corrupt,corrupt_files
+Apatura_iris,1182,1182,179,1862,6000,179,1846,6000,179,1812,25,168,.jpg:1182,JPEG:1182,RGB:1182,0,
+Brenthis_daphne,946,946,265,1894,4896,265,1844,5772,265,1820,5,108,.jpg:946,JPEG:946,RGB:946,0,
+Hamearis_lucina,1211,1211,272,1794,5608,272,1728,6000,272,1722,5,204,.jpg:1211,JPEG:1211,RGB:1211,0,
+Melitaea_diamina,1105,1105,186,1767,6000,186,1738,5568,186,1728,4,96,.jpg:1105,JPEG:1105,RGB:1105,0,
+Nymphalis_polychloros,1040,1040,170,1917,4928,170,1821,4032,170,1814,23,125,.jpg:1040,JPEG:1040,RGB:1040,0,

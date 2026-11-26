@@ -1,0 +1,36 @@
+# ViT LoRA auf qkv mit demselben Backbone wie beim Linear Probing.
+name: vit_lora            # Der Rank wird an den Ergebnisnamen angehängt.
+seed: 42
+
+model:
+  timm_name: vit_base_patch16_224.augreg2_in21k_ft_in1k
+
+lora:
+  rank: 8                 # Über --rank überschreibbar.
+  alpha_factor: 2         # alpha = alpha_factor * rank.
+  dropout: 0.1
+  target_modules: [qkv]
+  modules_to_save: [head] # Klassifikationskopf mit speichern.
+
+transforms:               # Wie beim CNN.
+  img_size: 224
+  resize_size: 256
+  rrc_scale: [0.25, 1.0]
+  hflip_p: 0.5
+
+train:
+  batch_size: 32          # Bei GPU-Speichermangel reduzieren.
+  accum_steps: 1          # Effektive Batchgröße = batch_size * accum_steps.
+  num_workers: 4
+  epochs: 8               # Testlauf mit r=16 dauerte etwa 16,7 Minuten pro Epoche.
+  lr: 1.0e-3
+  weight_decay: 0.01
+  amp: true
+
+debug:
+  epochs: 1
+  max_batches: 2
+
+output:
+  checkpoint_dir: experiments/checkpoints
+  results_dir: experiments/results

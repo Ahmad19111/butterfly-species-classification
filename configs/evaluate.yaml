@@ -1,0 +1,31 @@
+# Modelle auf dem Test-Set auswerten.
+seed: 42
+batch_size: 64
+num_workers: 4
+amp: true
+
+# Bootstrap-Konfidenzintervalle für Accuracy und Macro-F1.
+bootstrap:
+  n_resamples: 1000
+  level: 0.95
+
+# kind legt das Ladeverfahren fest; Ergebnisse liegen unter results_dir/<name>.json.
+# splits_dir verweist auf den Test-Split des jeweiligen Trainingslaufs.
+runs:
+  - {name: cnn_resnet50, label: "ResNet50 FT", kind: cnn, config: configs/cnn_resnet50.yaml}
+  - {name: vit_linear_probe, label: "ViT-B/16 LP", kind: vit_lp, config: configs/vit_linear_probe.yaml}
+  - {name: vit_lora_r4, label: "ViT-B/16 LoRA r=4", kind: vit_lora, config: configs/vit_lora.yaml, rank: 4}
+  - {name: vit_lora_r8, label: "ViT-B/16 LoRA r=8", kind: vit_lora, config: configs/vit_lora.yaml, rank: 8}
+  - {name: vit_lora_r16, label: "ViT-B/16 LoRA r=16", kind: vit_lora, config: configs/vit_lora.yaml, rank: 16}
+  # Random-Split für den direkten Vergleich beibehalten.
+  - {name: cnn_resnet50_random_split, label: "ResNet50 FT (Random-Split)", kind: cnn,
+     config: configs/cnn_resnet50.yaml, splits_dir: data/splits/random_split}
+
+output:
+  results_dir: experiments/results
+  table_csv: experiments/results/test_results.csv
+
+# Paarweise McNemar-Tests mit Holm-Korrektur.
+mcnemar:
+  alpha: 0.05
+  table_csv: reports/mcnemar.csv

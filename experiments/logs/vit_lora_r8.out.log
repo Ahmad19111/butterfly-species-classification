@@ -1,0 +1,12 @@
+vit_lora_r8: alpha 16, trainierbar 298,757 (LoRA 294,912, Kopf 3,845) = 0.35 % von 86,101,258, Gerät: cuda
+[lora] Epoche 1: train loss 0.2192 acc 0.9163 | val loss 0.0538 acc 0.9818 | 877s *
+[lora] Epoche 2: train loss 0.0412 acc 0.9872 | val loss 0.0173 acc 0.9939 | 860s *
+[lora] Epoche 3: train loss 0.0240 acc 0.9917 | val loss 0.0263 acc 0.9915 | 858s
+[lora] Epoche 4: train loss 0.0187 acc 0.9930 | val loss 0.0611 acc 0.9867 | 859s
+[lora] Epoche 5: train loss 0.0260 acc 0.9911 | val loss 0.0285 acc 0.9915 | 859s
+[lora] Epoche 6: train loss 0.0204 acc 0.9922 | val loss 0.0366 acc 0.9879 | 859s
+[lora] Epoche 7: train loss 0.0349 acc 0.9872 | val loss 0.0467 acc 0.9891 | 859s
+[lora] Epoche 8: train loss 0.0338 acc 0.9893 | val loss 0.1574 acc 0.9454 | 859s
+lora: Trainingszeit 6891s, max. GPU-Speicher 2089.37109375 MB (reserviert 2244.0 MB)
+Beste Val-Acc 0.9939 (Epoche 2), Gesamtzeit 7623s
+Gespeichert: experiments/results/vit_lora_r8.json

@@ -1,0 +1,32 @@
+# ResNet50-Transfer-Learning mit zweiphasigem Fine-Tuning.
+name: cnn_resnet50
+seed: 42
+
+model:
+  weights: IMAGENET1K_V2
+
+transforms:
+  img_size: 224
+  resize_size: 256        # Validierung und Test: Resize, dann CenterCrop.
+  rrc_scale: [0.25, 1.0]  # Mindestens 25 % der Bildfläche im Zufallsausschnitt.
+  hflip_p: 0.5
+
+train:
+  batch_size: 32
+  num_workers: 4
+  weight_decay: 0.01
+  amp: true               # fp16 Autocast.
+  phase_a:                # Backbone eingefroren, nur fc trainieren.
+    epochs: 3
+    lr: 1.0e-3
+  phase_b:                # Gesamtes Modell trainieren.
+    epochs: 10
+    lr: 1.0e-4
+
+debug:
+  epochs: 1
+  max_batches: 5
+
+output:
+  checkpoint_dir: experiments/checkpoints
+  results_dir: experiments/results
